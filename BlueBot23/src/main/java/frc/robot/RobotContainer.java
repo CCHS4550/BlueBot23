@@ -22,8 +22,32 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
+  private final Vroom vroom = new Vroom();
+
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+
+
+    RunCommand VroomDefaultVroom = Commands.run(()->{
+      vroom.drive(OI.axis(0,ControlMap.LJoystickVertical), OI.axis(0,ControlMap.RJoystickHorizontal));
+
+    });
+
+    vroom.setDefaultCommand(VroomDefaultVroom);
+
+    RunCommand UppsiesDefaultUppsies = Commands.run(()->{
+      uppsies.set(OI.axis(1,ControlMap.LJoystickVertical)*0.5);
+    });
+
+    RunCommand SucciesDefaultSuccies = Commands.run(() ->{
+
+        If(OI.Button(1,ControlMap.A_BUTTON)){
+          
+        }
+
+
+    })
     // Configure the button bindings
     configureButtonBindings();
   }
