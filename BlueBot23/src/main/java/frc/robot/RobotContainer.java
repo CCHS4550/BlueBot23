@@ -24,6 +24,10 @@ public class RobotContainer {
 
   private final Vroom vroom = new Vroom();
 
+  private final Uppsies uppsies = new Uppsies();
+
+  private final Succies succies = new Succies();
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -37,17 +41,16 @@ public class RobotContainer {
     vroom.setDefaultCommand(VroomDefaultVroom);
 
     RunCommand UppsiesDefaultUppsies = Commands.run(()->{
-      uppsies.set(OI.axis(1,ControlMap.LJoystickVertical)*0.5);
+      uppsies.INeedUppsies(OI.axis(1,ControlMap.LJoystickVertical));
     });
 
+    uppsies.setDefaultCommand(UppsiesDefaultUppsies);
+
     RunCommand SucciesDefaultSuccies = Commands.run(() ->{
-
-        If(OI.Button(1,ControlMap.A_BUTTON)){
-          
-        }
-
-
+      succies.INeedSucc(OI.axis(1,ControlMap.RJoystickVertical));
     })
+
+    succies.setDefaultCommand(SucciesDefaultSuccies);
     // Configure the button bindings
     configureButtonBindings();
   }
