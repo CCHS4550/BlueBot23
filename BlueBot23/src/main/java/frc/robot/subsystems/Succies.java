@@ -5,7 +5,7 @@ public class Succies extends SubsystemBase{
 
     MotorControllerGroup Succ = new MotorControllerGroup(intakeOne, intakeTwo);
 
-    public void INeedSucc(){
-        Succ.set(0.5);
+    public void INeedSucc(double Speeed){
+        Succ.set(Speeed);
     }
-}
+}//jasicnhdslcbjcbdewkjcb wkjcb ewkjcb,
